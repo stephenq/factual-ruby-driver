@@ -1,3 +1,6 @@
+## v1.3.14
+* configurable table name in resolve/match requests
+
 ## v1.3.13
 * added support of data/fields parameters of flag
 
