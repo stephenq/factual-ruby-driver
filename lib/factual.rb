@@ -43,12 +43,22 @@ class Factual
     Query::Facets.new(@api, "t/#{table_id_or_alias}")
   end
 
-  def match(values)
-    Query::Match.new(@api, :values => values)
+  def match(*args)
+    table = 'places'
+    values = args[-1]
+    if args.first.is_a?(String)
+      table = args[0]
+    end
+    Query::Match.new(@api, table, :values => values)
   end
 
-  def resolve(values)
-    Query::Resolve.new(@api, :values => values)
+  def resolve(*args)
+    table = 'places'
+    values = args[-1]
+    if args.first.is_a?(String)
+      table = args[0]
+    end
+    Query::Resolve.new(@api, table, :values => values)
   end
 
   def geocode(lat, lng)

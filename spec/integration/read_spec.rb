@@ -52,10 +52,11 @@ describe "Read APIs" do
   end
 
   it "should be able to do a resolve query" do
-    rows = @factual.resolve("name" => "McDonalds",
-                            "address" => "10451 Santa Monica Blvd",
-                            "region" => "CA",
-                            "postcode" => "90025").rows
+    rows = @factual.resolve("places-us",
+             "name" => "McDonalds",
+             "address" => "10451 Santa Monica Blvd",
+             "region" => "CA",
+             "postcode" => "90025").rows
     rows.class.should == Array
     rows.each do |row|
       row.class.should == Hash
