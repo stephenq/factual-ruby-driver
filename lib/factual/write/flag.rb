@@ -1,8 +1,9 @@
 class Factual
   module Write
     class Flag < Base
-      PROBLEMS = [:duplicate, :nonexistent, :inaccurate, :inappropriate, :spam, :other]
-      VALID_KEYS = [:table, :factual_id, :problem, :user, :comment, :debug, :reference, :fields, :data]
+      PROBLEMS = [:duplicate, :nonexistent, :inaccurate, :inappropriate, :spam, :relocated, :other]
+      VALID_KEYS = [:table, :factual_id, :problem, :user, :comment, :debug, :reference, :fields, :preferred]
+      DEPRECATED_KEYS = [:data]
 
       def initialize(api, params)
         validate_params(params)
@@ -23,6 +24,7 @@ class Factual
 
       def validate_params(params)
         params.keys.each do |key|
+          raise "Deprecated flag option: #{key}" if DEPRECATED_KEYS.include?(key)
           raise "Invalid flag option: #{key}" unless VALID_KEYS.include?(key)
         end
 
