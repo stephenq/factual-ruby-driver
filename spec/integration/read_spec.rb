@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'yaml'
 
 describe "Read APIs" do
-  FACTUAL_ID = "110ace9f-80a7-47d3-9170-e9317624ebd9"
+  FACTUAL_ID = "03c26917-5d66-4de9-96bc-b13066173c65"
 
   before(:all) do
     credentials = YAML.load(File.read(CREDENTIALS_FILE))
@@ -78,23 +78,6 @@ describe "Read APIs" do
     row.class.should == Hash
     row['address'].should_not be_empty
   end
-
-  # geopulse is deprecated
-  # it "should be able to do geopulse queries" do
-  #   query = @factual.geopulse(LAT, LNG)
-  #   row = query.data['demographics']
-  #   row.class.should == Hash
-  #   row['area_statistics'].class.should == Hash
-  #   row['income'].class.should == Hash
-  #   row['race_and_ethnicity'].class.should == Hash
-  #
-  #   query = query.select('area_statistics', 'income')
-  #   row = query.data['demographics']
-  #   row.class.should == Hash
-  #   row['area_statistics'].class.should == Hash
-  #   row['income'].class.should == Hash
-  #   row['race_and_ethnicity'].class.should == NilClass
-  # end
 
   it "should redirect for deprecated endpoints" do
     row = @factual.table("places").row("1c87c781-1fb9-40d0-b9b1-1e140277eb2b")

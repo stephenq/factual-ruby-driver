@@ -1,3 +1,9 @@
+## v1.3.15
+* changed flag parameters, +preferred, -data, +relocated as a problem
+* sunset geopulse
+* added 'threshold' to read parameters
+* test cases cleanup
+
 ## v1.3.14
 * configurable table name in resolve/match requests
 
