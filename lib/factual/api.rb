@@ -1,6 +1,6 @@
 class Factual
   class API
-    VERSION = "1.3.15"
+    VERSION = "1.3.16"
     API_V3_HOST = "api.v3.factual.com"
     DRIVER_VERSION_TAG = "factual-ruby-driver-v" + VERSION
     PARAM_ALIASES = { :search => :q, :sort_asc => :sort }

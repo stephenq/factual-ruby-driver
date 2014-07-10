@@ -1,3 +1,6 @@
+## v1.3.16
+* fixed flag closed #29
+
 ## v1.3.15
 * changed flag parameters, +preferred, -data, +relocated as a problem
 * sunset geopulse
