@@ -1,7 +1,7 @@
 class Factual
   module Write
     class Flag < Base
-      PROBLEMS = [:duplicate, :nonexistent, :inaccurate, :inappropriate, :spam, :relocated, :other]
+      PROBLEMS = [:closed, :duplicate, :nonexistent, :inaccurate, :inappropriate, :spam, :relocated, :other]
       VALID_KEYS = [:table, :factual_id, :problem, :user, :comment, :debug, :reference, :fields, :preferred]
       DEPRECATED_KEYS = [:data]
 
