@@ -98,7 +98,7 @@ class Factual
 
     def handle_payload(payload)
       raise StandardError.new(payload.to_json) unless payload["status"] == "ok"
-      payload["response"]
+      payload["response"] || payload["status"]
     end
 
     def make_request(url, body=nil, method=:get)
