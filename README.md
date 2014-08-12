@@ -22,7 +22,7 @@ Use the schema API call to determine which fields are available, the datatypes o
 
 Full documentation: http://developer.factual.com/api-docs/#Schema
 ```ruby
-factual.table('places-us').schema
+factual.table("places-us").schema
 ```
 
 ## Read
@@ -55,22 +55,22 @@ factual.table("places-us").filters("$and" => [{"category_ids" => {"$includes" =>
 factual.table("places-us").search("starbucks").filters("locality" => "los angeles").rows
 
 #  search for starbucks in Los Angeles or Santa Monica 
-factual.table("places-us').search("starbucks").filters("$or" => [{"locality" => {"$eq" =>"los angeles"}}, {"locality" => {"$eq" => "santa monica"}}]).rows
+factual.table("places-us").search("starbucks").filters("$or" => [{"locality" => {"$eq" =>"los angeles"}}, {"locality" => {"$eq" => "santa monica"}}]).rows
 
 # Paging:
 #  search for starbucks in Los Angeles or Santa Monica (second page of results):
-factual.table("places-us').search("starbucks").filters("$or" => [{"locality" => {"$eq" =>"los angeles"}}, {"locality" => {"$eq" => "santa monica"}}]).page(2, :per => 20).rows
+factual.table("places-us").search("starbucks").filters("$or" => [{"locality" => {"$eq" =>"los angeles"}}, {"locality" => {"$eq" => "santa monica"}}]).page(2, :per => 20).rows
 
 # Geo filter:
 #  coffee near the Factual office
-factual.table("places-us').search("coffee").geo("$circle" => {"$center" => [34.058583, -118.416582], "$meters" => 1000}).rows
+factual.table("places-us").search("coffee").geo("$circle" => {"$center" => [34.058583, -118.416582], "$meters" => 1000}).rows
 
 # Existence threshold:
 #  prefer precision over recall:
-factual.table("places-us').threshold("confident").rows
+factual.table("places-us").threshold("confident").rows
 
 # Get a row by factual id:
-factual.table("places-us').row("03c26917-5d66-4de9-96bc-b13066173c65")
+factual.table("places-us").row("03c26917-5d66-4de9-96bc-b13066173c65")
 
 ```
 
@@ -80,7 +80,7 @@ Use the facets call to get summarized counts, grouped by specified fields.
 Full documentation: http://developer.factual.com/api-docs/#Facets
 ```ruby
 # show top 5 cities that have more than 20 Starbucks in California
-factual.facets("places-us').select("locality").search("starbucks").filters("region" => "CA").min_count(20).limit(5).columns
+factual.facets("places-us").select("locality").search("starbucks").filters("region" => "CA").min_count(20).limit(5).columns
 ```
 
 ## Resolve
