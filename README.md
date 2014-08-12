@@ -153,7 +153,7 @@ new_value = {
   category_ids: [209,213],
   hours: "Mon 11:30am-2pm Tue-Fri 11:30am-2pm, 5:30pm-9pm Sat-Sun closed"
 }
-factual.submit("us-sandbox", "a_user_id").values(new_values).write
+factual.submit("us-sandbox", "a_user_id").values(new_value).write
 ```
 
 Edit an existing row:
