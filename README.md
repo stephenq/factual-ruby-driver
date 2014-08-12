@@ -46,7 +46,7 @@ factual.table("places-us").search("century city mall").rows
 factual.table("places-us").filters("category_ids" => {"$includes" => 347}).rows
 
 #  search restaurants or bars
-factual.table("places-us").filters("category_ids" => {"$includes_any" => [312,347]}).rows
+factual.table("places-us").filters("category_ids" => {"$includes_any" => [312, 347]}).rows
 
 #  search entertainment venues but NOT adult entertainment
 factual.table("places-us").filters("$and" => [{"category_ids" => {"$includes" => 317}}, {"category_ids" => {"$excludes" => 318}}]).rows
@@ -89,10 +89,10 @@ Use resolve to generate a confidence-based match to an existing set of place att
 Full documentation: http://developer.factual.com/api-docs/#Resolve
 ```ruby
 # resovle from name and address info
-factual.table("places-us").resolve("name" => "McDonalds", "address" => "10451 Santa Monica Blvd", "region" => "CA", "postcode" => "90025").rows
+factual.resolve("places-us").values("name" => "McDonalds", "address" => "10451 Santa Monica Blvd", "region" => "CA", "postcode" => "90025").rows
 
 # resolve from name and geo location
-factual.table("places-us").resolve("name" => "McDonalds", "latitude" => 34.05671, "longitude" => -118.42586).rows
+factual.match("places-us").values("name" => "McDonalds", "latitude" => 34.05671, "longitude" => -118.42586).rows
 ```
 
 ## Match
@@ -146,8 +146,8 @@ new_value = {
   address_extended: "34th floor",
   locality: "Los Angeles",
   region: "CA",
-  postcode: "90067"
-  country: "us"
+  postcode: "90067",
+  country: "us",
   latitude: 34.058743,
   longitude: -118.41694,
   category_ids: [209,213],
