@@ -6,6 +6,7 @@ class Factual
         :filters, :search, :geo, 
         :select, 
         :limit, :min_count,
+        :threshold,
         :include_count, :user
       ] 
 

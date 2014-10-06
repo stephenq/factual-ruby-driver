@@ -1,3 +1,6 @@
+## v1.3.17
+* threshold support in facets
+
 ## v1.3.16
 * fixed flag closed #29
 
