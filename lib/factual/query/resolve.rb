@@ -14,5 +14,12 @@ class Factual
         end
       end
     end
+
+    class ResolveAbsolute < Resolve
+      def initialize(api, table, params = {})
+        super(api, table, params)
+        @path = "t/#{@table}/resolve-absolute"
+      end
+    end
   end
 end

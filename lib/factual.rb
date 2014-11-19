@@ -60,6 +60,15 @@ class Factual
     Query::Resolve.new(@api, table, :values => values)
   end
 
+  def resolve_absolute(*args)
+    table = 'places'
+    values = args[-1]
+    if args.first.is_a?(String)
+      table = args[0]
+    end
+    Query::ResolveAbsolute.new(@api, table, :values => values)
+  end
+
   def geocode(lat, lng)
     Query::Geocode.new(@api, lat, lng)
   end

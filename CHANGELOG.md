@@ -1,3 +1,6 @@
+## v1.3.18
+* added 'resolve-absolute' support
+
 ## v1.3.17
 * threshold support in facets
 

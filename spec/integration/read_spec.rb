@@ -57,6 +57,21 @@ describe "Read APIs" do
              "address" => "10451 Santa Monica Blvd",
              "region" => "CA",
              "postcode" => "90025").rows
+
+    rows.class.should == Array
+    rows.each do |row|
+      row.class.should == Hash
+      row.keys.should_not be_empty
+    end
+  end
+
+  it "should be able to do a resolve absolute query" do
+    rows = @factual.resolve_absolute("places-us",
+             "name" => "McDonalds",
+             "address" => "10451 Santa Monica Blvd",
+             "region" => "CA",
+             "postcode" => "90025").rows
+
     rows.class.should == Array
     rows.each do |row|
       row.class.should == Hash
