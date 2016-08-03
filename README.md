@@ -227,7 +227,7 @@ Debug Mode will output useful information about what's going on, including  the 
 
 
 ## Custom timeouts
-You can set the request timeout (in milliseconds):
+You can set the request timeout (in seconds):
 ```ruby
 # set the timeout as 1 second
 factual = Factual.new(key, secret, :timeout => 1)
