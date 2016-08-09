@@ -45,5 +45,4 @@ describe Factual::Query::Resolve do
   it "should be able to get a value at a specific index" do
     @resolve[1]["key"].should == "value2"
   end
-  end
 end

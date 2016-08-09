@@ -1,3 +1,8 @@
+## v1.3.19
+* re-enabled flag data parameter
+* let flag.problem be checked by api, i/o in driver
+* removed deprecated geocode
+
 ## v1.3.18
 * added 'resolve-absolute' support
 

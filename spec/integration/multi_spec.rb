@@ -11,11 +11,11 @@ describe "Multi API" do
 
   it "should be able to do multi queries" do
     places_query = @factual.table("places").search('food').filters(:postcode => 90067)
-    geocode_query = @factual.geocode(34.06021,-118.41828)
+    facets_query = @factual.facets("places-us").select("locality")
 
     responses = @factual.multi(
       :nearby_food => places_query,
-      :factual_inc => geocode_query)
+      :locality_facets => facets_query)
 
     responses[:nearby_food].rows.length.should == 20
     responses[:nearby_food].rows.each do |row|
@@ -23,6 +23,7 @@ describe "Multi API" do
       row.keys.should_not be_empty
     end
 
-    responses[:factual_inc].first["postcode"].should == "90067"
+    puts responses[:locality_facets].first.inspect
+    responses[:locality_facets].first[1]["los angeles"].to_s.should_not be_empty
   end
 end

@@ -88,12 +88,6 @@ describe "Read APIs" do
     end
   end
 
-  it "should be able to do a geocode query" do
-    row = @factual.geocode(LAT, LNG).first
-    row.class.should == Hash
-    row['address'].should_not be_empty
-  end
-
   it "should redirect for deprecated endpoints" do
     row = @factual.table("places").row("1c87c781-1fb9-40d0-b9b1-1e140277eb2b")
     row["postcode"].should == "90067"

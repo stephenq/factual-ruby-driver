@@ -21,17 +21,6 @@ describe Factual::Write::Flag do
     @token.last_body.should == "problem=duplicate&user=user123"
   end
 
-  it "should not allow an invalid problem" do
-    bad_params = @basic_params.merge!(:problem => :foo)
-    raised = false
-    begin
-      bad_flag = @klass.new(@api, bad_params)
-    rescue
-      raised = true
-    end
-    raised.should == true
-  end
-
   it "should not allow an invalid param" do
     bad_params = @basic_params.merge!(:foo => :bar)
     raised = false
@@ -49,12 +38,11 @@ describe Factual::Write::Flag do
     @token.last_body.should == "problem=duplicate&user=user123&comment=This+is+my+comment"
   end
 
-  # deprecating data option
-  # it "should be able to set data" do
-  #   @flag.data(factual_id: ["id123123", "id324234"]).write
-  #   @token.last_url.should == "http://api.v3.factual.com/t/global/id123/flag"
-  #   @token.last_body.should == "problem=duplicate&user=user123&data=%7B%22factual_id%22%3A%5B%22id123123%22%2C%22id324234%22%5D%7D"
-  # end
+  it "should be able to set data" do
+    @flag.data(factual_id: ["id123123", "id324234"]).write
+    @token.last_url.should == "http://api.v3.factual.com/t/global/id123/flag"
+    @token.last_body.should == "problem=duplicate&user=user123&data=%7B%22factual_id%22%3A%5B%22id123123%22%2C%22id324234%22%5D%7D"
+  end
 
   it "should be able to set the debug flag" do
     @flag.debug(true).write

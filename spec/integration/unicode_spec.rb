@@ -14,7 +14,7 @@ describe "Read APIs - Unicode Queries" do
 
   it "should be able to handle unicode" do
     @unicode_texts['cities'].each do |country, city|
-      q = @factual.table("global").filters('locality' => city)
+      q = @factual.table("places-#{country}").filters('locality' => city)
       q.first['locality'].should == city
     end
   end

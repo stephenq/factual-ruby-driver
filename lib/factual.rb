@@ -13,7 +13,6 @@ require File.expand_path('../factual/query/table', __FILE__)
 require File.expand_path('../factual/query/facets', __FILE__)
 require File.expand_path('../factual/query/match', __FILE__)
 require File.expand_path('../factual/query/resolve', __FILE__)
-require File.expand_path('../factual/query/geocode', __FILE__)
 require File.expand_path('../factual/write/base', __FILE__)
 require File.expand_path('../factual/write/flag', __FILE__)
 require File.expand_path('../factual/write/boost', __FILE__)
@@ -67,10 +66,6 @@ class Factual
       table = args[0]
     end
     Query::ResolveAbsolute.new(@api, table, :values => values)
-  end
-
-  def geocode(lat, lng)
-    Query::Geocode.new(@api, lat, lng)
   end
 
   def get(path, query={})
