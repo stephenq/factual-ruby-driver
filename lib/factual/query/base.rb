@@ -31,8 +31,12 @@ class Factual
       end
 
       def total_count
-        resp = @api.get(self, :include_count => true, :limit => 1)
-        resp["total_row_count"]
+        if response.nil? || response["total_row_count"].nil? then
+          resp = @api.get(self, :include_count => true, :limit => 1)
+          resp["total_row_count"]
+        else
+          response["total_row_count"]
+        end
       end
 
       def schema
@@ -48,6 +52,10 @@ class Factual
         @response = query_response
       end
 
+      def response
+        @response ||= @api.get(self)
+      end
+
       private
 
       def form_value(args)
@@ -55,9 +63,6 @@ class Factual
         args.length == 1 ? args.first : args.join(',')
       end
 
-      def response
-        @response ||= @api.get(self)
-      end
     end
   end
 end
